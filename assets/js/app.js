@@ -1,107 +1,131 @@
 (function () {
-  const root = document.body;
-  const THEME_KEY = 'cv-theme';
+  const root = document.documentElement;
+  const THEME_KEY = 'cv-theme-mode';
 
+  // Función para aplicar tema
   const applyTheme = (theme) => {
-    root.classList.toggle('theme-light', theme === 'light');
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+      document.body.classList.add('theme-light');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      document.body.classList.remove('theme-light');
+    }
   };
 
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  if (savedTheme === 'light' || savedTheme === 'dark') {
-    applyTheme(savedTheme);
-  }
+  // Cargar tema guardado o detectar preferencia del sistema
+  const loadTheme = () => {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved) {
+      applyTheme(saved);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(prefersDark ? 'dark' : 'light');
+    }
+  };
 
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const next = root.classList.contains('theme-light') ? 'dark' : 'light';
-      applyTheme(next);
-      localStorage.setItem(THEME_KEY, next);
+  // Aplicar tema al cargar
+  loadTheme();
+
+  // Toggle del tema
+  const themeBtn = document.getElementById('btnToggleTheme');
+  if (themeBtn) {
+    const updateBtnText = () => {
+      const isDark = document.body.classList.contains('theme-light') === false;
+      themeBtn.textContent = isDark ? '☀️ Claro' : '🌙 Oscuro';
+    };
+
+    updateBtnText();
+
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('theme-light') === false;
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem(THEME_KEY, newTheme);
+      updateBtnText();
     });
   }
 
-  const currentYear = document.getElementById('current-year');
-  if (currentYear) {
-    currentYear.textContent = String(new Date().getFullYear());
+  // Año dinámico en footer
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
 
-  const printBtn = document.getElementById('print-ats');
-  if (printBtn) {
-    printBtn.addEventListener('click', () => window.print());
-  }
+  // Obfuscación de emails
+  const emailLinks = document.querySelectorAll('[data-u][data-d]');
+  emailLinks.forEach((el) => {
+    const user = el.dataset.u;
+    const domain = el.dataset.d;
+    const email = `${user}@${domain}`;
+    el.textContent = email;
+    el.href = `mailto:${email}`;
+  });
 
-  const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Búsqueda en el CV
+  const searchInput = document.getElementById('searchInput');
+  const matchInfo = document.getElementById('matchInfo');
 
-  const cvContent = document.getElementById('cv-content');
-  const searchInput = document.getElementById('cv-search');
-  const searchCount = document.getElementById('search-count');
-  if (cvContent && searchInput) {
-    const searchableNodes = Array.from(
-      cvContent.querySelectorAll('p, li, h1, h2, h3')
-    ).map((el) => ({ el, original: el.textContent || '' }));
+  if (searchInput && matchInfo) {
+    const allElements = document.querySelectorAll('main h1, main h2, main h3, main p, main li');
+    const nodeData = Array.from(allElements).map((el) => ({
+      el,
+      originalText: el.textContent,
+    }));
 
-    const highlight = (query) => {
-      let matches = 0;
-      searchableNodes.forEach(({ el, original }) => {
-        if (!query) {
-          el.textContent = original;
-          return;
-        }
+    const clearHighlights = () => {
+      nodeData.forEach(({ el, originalText }) => {
+        el.textContent = originalText;
+      });
+    };
 
-        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
-        if (regex.test(original)) {
-          matches += (original.match(regex) || []).length;
-          el.innerHTML = original.replace(regex, '<mark class="cv-highlight">$1</mark>');
-        } else {
-          el.textContent = original;
+    const highlightMatches = (query) => {
+      clearHighlights();
+
+      if (!query.trim()) {
+        matchInfo.textContent = '';
+        return;
+      }
+
+      let totalMatches = 0;
+      const lowerQuery = query.toLowerCase();
+
+      nodeData.forEach(({ el, originalText }) => {
+        const lowerText = originalText.toLowerCase();
+
+        if (lowerText.includes(lowerQuery)) {
+          const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+          const matches = originalText.match(regex) || [];
+          totalMatches += matches.length;
+
+          el.innerHTML = originalText.replace(
+            regex,
+            '<mark>$1</mark>'
+          );
         }
       });
 
-      if (searchCount) {
-        searchCount.textContent = query ? `${matches} coincidencia(s)` : '';
-      }
+      matchInfo.textContent = totalMatches > 0 
+        ? `✓ ${totalMatches} coincidencia(s) encontrada(s)` 
+        : '✗ Sin coincidencias';
     };
 
-    searchInput.addEventListener('input', (event) => {
-      const value = event.target.value.trim();
-      highlight(value);
+    searchInput.addEventListener('input', (e) => {
+      highlightMatches(e.target.value);
     });
   }
 
-  const copyBtn = document.getElementById('copy-ats');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', async () => {
-      const atsText = [
-        'Cirilo Cardenas Gelves',
-        'Analista de Ciberseguridad Jr | Soporte TI | Infraestructura | Gestión de Incidentes',
-        'Bogotá, Colombia | profesional.cirilo@gmail.com | https://www.linkedin.com/in/andrestv',
-        '',
-        'Resumen Profesional:',
-        'Profesional orientado a fortalecer la continuidad operativa mediante soporte técnico, gestión de incidencias y acompañamiento a usuarios. Integra ciberseguridad, auditoría y análisis de riesgos para aportar controles preventivos, y optimiza procesos mediante documentación y liderazgo de buenas prácticas.',
-        '',
-        'Keywords ATS: Ciberseguridad, Soporte TI, Infraestructura, Gestión de Incidentes, Mesa de Ayuda, ITSM, Auditoría de Seguridad, Análisis de Riesgos, Seguridad de la Información, Azure, Power BI, DevOps, Redes, TCP/IP, Hardware, Software, Soporte en Sitio, Soporte Remoto, Documentación Técnica, Continuidad Operativa, Gestión de Activos, Troubleshooting, Windows, Linux, Operaciones de Seguridad, GitHub, Automatización, Seguridad Endpoints, Controles Preventivos.'
-      ].join('\n');
+  // Scroll suave para enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
 
-      try {
-        await navigator.clipboard.writeText(atsText);
-        copyBtn.textContent = 'Copiado ✓';
-        setTimeout(() => {
-          copyBtn.textContent = 'Copiar CV (ATS)';
-        }, 1400);
-      } catch {
-        copyBtn.textContent = 'No se pudo copiar';
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    });
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (event) => {
-      const id = anchor.getAttribute('href');
-      if (!id || id === '#') return;
-      const section = document.querySelector(id);
-      if (!section) return;
-      event.preventDefault();
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 })();
