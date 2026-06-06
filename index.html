@@ -1,193 +1,213 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CV interactivo de Cirilo Cardenas Gelves - Analista de Ciberseguridad Jr, Soporte TI e Infraestructura."
-    />
-    <title>CV | Cirilo Cardenas Gelves</title>
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="#inicio" class="brand">Cirilo Cardenas Gelves</a>
-        <nav aria-label="Navegación principal">
-          <ul class="nav-list">
-            <li><a href="#resumen">Resumen</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#educacion">Educación</a></li>
-            <li><a href="#certificaciones">Certificaciones</a></li>
-            <li><a href="#keywords">Keywords ATS</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <div class="container page-grid" id="inicio">
-      <aside class="sidebar" aria-label="Panel lateral">
-        <section class="card">
-          <h2 class="card-title">Contacto</h2>
-          <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
-          <p>
-            <strong>Email:</strong>
-            <a href="mailto:profesional.cirilo@gmail.com">profesional.cirilo@gmail.com</a>
-          </p>
-          <p>
-            <strong>LinkedIn:</strong>
-            <a href="https://www.linkedin.com/in/andrestv" target="_blank" rel="noopener noreferrer"
-              >/in/andrestv</a
-            >
-          </p>
-        </section>
-
-        <section class="card">
-          <h2 class="card-title">Buscar en CV</h2>
-          <label for="cv-search" class="sr-only">Buscar palabras clave en el CV</label>
-          <input
-            id="cv-search"
-            type="search"
-            placeholder="Ej: Azure, ITSM, Linux..."
-            autocomplete="off"
-          />
-          <p id="search-count" aria-live="polite" class="search-count"></p>
-        </section>
-
-        <section class="card">
-          <h2 class="card-title">Acciones</h2>
-          <div class="actions">
-            <button id="theme-toggle" type="button">Cambiar tema</button>
-            <a class="button" href="/ats.html" target="_blank" rel="noopener">Exportar PDF (ATS)</a>
-            <button id="copy-ats" type="button">Copiar CV (ATS)</button>
-          </div>
-        </section>
-      </aside>
-
-      <main class="main-content" id="cv-content">
-        <section id="resumen" class="card">
-          <h1>Cirilo Cardenas Gelves</h1>
-          <p class="headline">
-            Analista de Ciberseguridad Jr | Soporte TI | Infraestructura | Gestión de Incidentes
-          </p>
-          <p>
-            Profesional orientado a fortalecer la continuidad operativa mediante soporte técnico,
-            gestión de incidencias y acompañamiento a usuarios. Integra ciberseguridad, auditoría y
-            análisis de riesgos para aportar controles preventivos, y optimiza procesos mediante
-            documentación y liderazgo de buenas prácticas.
-          </p>
-          <h2>Propuesta de valor</h2>
-          <ol>
-            <li>
-              Fortalece continuidad operativa mediante soporte técnico, gestión de incidencias y
-              acompañamiento a usuarios.
-            </li>
-            <li>
-              Integra ciberseguridad, auditoría y análisis de riesgos para aportar controles
-              preventivos.
-            </li>
-            <li>
-              Optimiza procesos y facilita adopción de buenas prácticas mediante documentación y
-              liderazgo.
-            </li>
-          </ol>
-        </section>
-
-        <section id="habilidades" class="card">
-          <h2>Habilidades principales</h2>
-          <ul>
-            <li>
-              <strong>Ciberseguridad:</strong> Auditorías, análisis de riesgos, vulnerabilidades,
-              controles preventivos, seguridad endpoints.
-            </li>
-            <li>
-              <strong>Infraestructura/Soporte:</strong> Soporte técnico, gestión de incidentes,
-              Windows/Linux, redes TCP/IP, documentación.
-            </li>
-            <li>
-              <strong>Cloud/DevOps:</strong> Azure Fundamentals, DevOps básico, GitHub,
-              automatización.
-            </li>
-            <li><strong>Datos:</strong> Power BI, análisis de datos.</li>
-          </ul>
-        </section>
-
-        <section id="experiencia" class="card">
-          <h2>Experiencia</h2>
-          <article>
-            <h3>Consultor Junior en Soluciones Tecnológicas</h3>
-            <p>Varias organizaciones, Bogotá | Feb 2025 - Presente</p>
-          </article>
-          <article>
-            <h3>Internal Auditor</h3>
-            <p>HELMANCARRILLO | Mar 2025 - Abr 2025</p>
-          </article>
-          <article>
-            <h3>Agente de mesa de ayuda I</h3>
-            <p>Xolit, Bogotá | Nov 2021 - Ago 2024</p>
-          </article>
-          <article>
-            <h3>Agente de mesa de ayuda</h3>
-            <p>Xolit, Villavicencio | Mar 2021 - Oct 2021</p>
-          </article>
-          <article>
-            <h3>Técnico de transmisión</h3>
-            <p>AndresGelves, Villavicencio | Oct 2018 - Mar 2021</p>
-          </article>
-          <article>
-            <h3>Técnico de soporte</h3>
-            <p>Proyectos, consultorías e ingeniería S.A.S, Tauramena | Ene 2017 - Dic 2017</p>
-          </article>
-          <article>
-            <h3>Auxiliar de TI</h3>
-            <p>Instituto Educativo Siglo XXI, Tauramena | Feb 2009 - May 2011</p>
-          </article>
-        </section>
-
-        <section id="educacion" class="card">
-          <h2>Educación</h2>
-          <ul>
-            <li>Ingeniería de Sistemas - CUN (2021-2027, en curso)</li>
-            <li>Tecnólogo en Desarrollo de Software y Redes - CUN (2021-2026)</li>
-            <li>Bootcamp Ciberseguridad - CUN (Feb-May 2025)</li>
-            <li>Técnico Profesional en Soporte de Sistemas - CUN (2022-2024)</li>
-            <li>Diplomado Desarrollo de Software - UNAL (Nov-Dic 2020)</li>
-          </ul>
-        </section>
-
-        <section id="certificaciones" class="card">
-          <h2>Certificaciones</h2>
-          <ul>
-            <li>Curso de Power BI</li>
-            <li>Bootcamp de Ciencia de Datos con Azure</li>
-            <li>Microsoft Power Platform Fundamentals</li>
-            <li>Bootcamp de DevOps con Azure</li>
-            <li>Fundamentación de Ensamble y Mantenimiento de Computadores</li>
-          </ul>
-        </section>
-
-        <section id="keywords" class="card">
-          <h2>Keywords ATS</h2>
-          <p>
-            Ciberseguridad, Soporte TI, Infraestructura, Gestión de Incidentes, Mesa de Ayuda,
-            ITSM, Auditoría de Seguridad, Análisis de Riesgos, Seguridad de la Información, Azure,
-            Power BI, DevOps, Redes, TCP/IP, Hardware, Software, Soporte en Sitio, Soporte
-            Remoto, Documentación Técnica, Continuidad Operativa, Gestión de Activos,
-            Troubleshooting, Windows, Linux, Operaciones de Seguridad, GitHub, Automatización,
-            Seguridad Endpoints, Controles Preventivos.
-          </p>
-        </section>
-      </main>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="CV interactivo de Cirilo Cardenas Gelves - Analista de Ciberseguridad Jr, Soporte TI e Infraestructura.">
+  <title>Cirilo Cardenas Gelves | CV</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <strong>Cirilo Cardenas Gelves</strong>
+      <span class="muted">CV | Ciberseguridad & Soporte TI</span>
     </div>
+    <div class="topbar-actions">
+      <button id="btnToggleTheme" class="btn subtle" type="button" aria-label="Cambiar tema">🌙 Tema</button>
+      <a href="ats.html" target="_blank" rel="noopener" class="btn primary" aria-label="Abrir versión ATS">📄 ATS / PDF</a>
+    </div>
+  </header>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="current-year"></span> Cirilo Cardenas Gelves. Todos los derechos reservados.</p>
+  <main class="container">
+    <!-- Hero / Perfil -->
+    <section class="hero">
+      <h1>Cirilo Cardenas Gelves</h1>
+      <p class="subtitle">Analista de Ciberseguridad Jr | Soporte TI | Infraestructura | Gestión de Incidentes | Auditoría de Seguridad</p>
+      <div class="chips">
+        <span class="chip">📍 Bogotá, Colombia</span>
+        <span class="chip">📧 <a class="email-link" id="email1" data-u="profesional.cirilo" data-d="gmail.com"></a></span>
+        <span class="chip">💼 <a href="https://www.linkedin.com/in/andrestv" target="_blank" rel="noopener">LinkedIn</a></span>
       </div>
-    </footer>
+    </section>
 
-    <script src="/assets/js/app.js"></script>
-  </body>
+    <!-- Grid: Resumen + Contacto -->
+    <section class="grid">
+      <article class="card">
+        <h2 class="title">📋 Resumen profesional</h2>
+        <p>Profesional de TI con experiencia en soporte técnico, infraestructura, mesa de ayuda y ciberseguridad. Trayectoria en atención a usuarios, mantenimiento de hardware/software, gestión de incidencias y acompañamiento a proyectos tecnológicos. Formación continua en ingeniería de sistemas, desarrollo de software, redes, Azure, Power BI y DevOps. Perfil orientado a continuidad operativa, documentación técnica, mejora de procesos y seguridad de la información.</p>
+      </article>
+      <article class="card">
+        <h2 class="title">☎️ Contacto</h2>
+        <ul>
+          <li><strong>Ubicación:</strong> Bogotá, Colombia</li>
+          <li><strong>Email:</strong> <a class="email-link" id="email2" data-u="profesional.cirilo" data-d="gmail.com"></a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/andrestv" target="_blank" rel="noopener">andrestv</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Habilidades + Propuesta de valor -->
+    <section class="two section">
+      <article class="card">
+        <h2 class="title">⚙️ Habilidades Principales</h2>
+        <ul>
+          <li><strong>Ciberseguridad:</strong> Auditorías, análisis de riesgos, vulnerabilidades, controles preventivos</li>
+          <li><strong>Infraestructura/Soporte:</strong> Windows/Linux, redes TCP/IP, gestión de incidentes, ITSM</li>
+          <li><strong>Cloud/DevOps:</strong> Azure Fundamentals, DevOps básico, GitHub</li>
+          <li><strong>Datos/Analítica:</strong> Power BI, análisis de datos</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="title">🎯 Propuesta de Valor</h2>
+        <ul>
+          <li>Fortalece continuidad operativa mediante soporte técnico, gestión de incidencias y acompañamiento a usuarios</li>
+          <li>Integra ciberseguridad, auditoría y análisis de riesgos para aportar controles preventivos</li>
+          <li>Optimiza procesos y facilita adopción de buenas prácticas mediante documentación y liderazgo</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Búsqueda -->
+    <section class="card section">
+      <h2 class="title">🔍 Búsqueda en CV</h2>
+      <input id="searchInput" class="input" type="search" placeholder="Buscar (ej: ciberseguridad, Azure, auditoría, incidentes...)">
+      <div id="matchInfo" class="muted small" style="margin-top:8px;"></div>
+    </section>
+
+    <!-- Experiencia -->
+    <section class="section">
+      <div class="card">
+        <h2 class="title">💼 Experiencia</h2>
+        
+        <article class="job">
+          <h3>Consultor Junior en Soluciones Tecnológicas</h3>
+          <p class="small"><strong>Varias organizaciones</strong> | Bogotá, Colombia | Feb 2025 – Presente</p>
+          <ul>
+            <li>Analizo y resuelvo incidentes técnicos para apoyar la continuidad operativa y la seguridad de los sistemas</li>
+            <li>Brindo soporte especializado a usuarios y clientes con enfoque en solución efectiva</li>
+            <li>Capacito y acompaño técnicamente en adopción de herramientas y buenas prácticas</li>
+            <li>Colaboro en proyectos interdisciplinarios relacionados con redes, IoT, seguridad informática y gestión de riesgos</li>
+            <li>Elaboro documentación y apoyo auditorías básicas de procesos alineadas con estándares de calidad</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Internal Auditor</h3>
+          <p class="small"><strong>HELMANCARRILLO</strong> | Mar 2025 – Abr 2025</p>
+          <ul>
+            <li>Lideré la asignación de tareas y el seguimiento de actividades técnicas en Bootcamp de Ciberseguridad CUN</li>
+            <li>Diseñé y ejecuté pruebas orientadas a identificar oportunidades de mejora en procesos operativos</li>
+            <li>Optimicé flujos de trabajo mediante comunicación activa con instructores y compañeros</li>
+            <li>Fortalecí competencias en gestión de proyectos, ciberseguridad y trabajo colaborativo</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Agente de mesa de ayuda I</h3>
+          <p class="small"><strong>Xolit</strong> | Bogotá, Colombia | Nov 2021 – Ago 2024</p>
+          <ul>
+            <li>Asigné y clasifiqué tickets en herramienta ITSM con cumplimiento de SLA</li>
+            <li>Identifiqué y resolví fallos de servicio reportados por usuarios</li>
+            <li>Ejecuté soporte preventivo y correctivo en herramientas ofimáticas, hardware y software</li>
+            <li>Configuré impresoras, dispositivos de hardware y periféricos</li>
+            <li>Coordiné con soporte de Nivel 2 en incidentes que requerían escalamiento</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Agente de mesa de ayuda</h3>
+          <p class="small"><strong>Xolit</strong> | Villavicencio, Meta | Mar 2021 – Oct 2021</p>
+          <ul>
+            <li>Gestioné incidencias y problemas de servicio mediante mesa de ayuda</li>
+            <li>Atendí requerimientos asociados a soporte técnico en sistemas, electrónica y telecomunicaciones</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Técnico de transmisión</h3>
+          <p class="small"><strong>AndresGelves</strong> | Villavicencio, Meta | Oct 2018 – Mar 2021</p>
+          <ul>
+            <li>Configuré y brindé soporte a OBS Studio para transmisiones en redes sociales</li>
+            <li>Optimicé ajustes técnicos para mejorar la fluidez y calidad de transmisión</li>
+            <li>Gestioné el flujo de trabajo audiovisual durante eventos en vivo</li>
+            <li>Resolví problemas técnicos en tiempo real durante transmisiones</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Técnico de soporte</h3>
+          <p class="small"><strong>Proyectos, consultorías e ingeniería S.A.S</strong> | Tauramena, Casanare | Ene 2017 – Dic 2017</p>
+          <ul>
+            <li>Coordiné e implementé proyectos de tecnología educativa</li>
+            <li>Diagnosticé y solucioné problemas complejos de hardware y software</li>
+            <li>Gestioné infraestructura de red y medidas de seguridad</li>
+            <li>Elaboré materiales formativos, documentación técnica y reportes de mejora</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Auxiliar de TI</h3>
+          <p class="small"><strong>Instituto Educativo Siglo XXI</strong> | Tauramena, Casanare | Feb 2009 – May 2011</p>
+          <ul>
+            <li>Instalé y configuré computadores, impresoras y periféricos</li>
+            <li>Realicé mantenimiento preventivo y correctivo de equipos</li>
+            <li>Brindé soporte técnico remoto y en sitio a docentes y estudiantes</li>
+            <li>Configuré y mantuve redes LAN y conectividad a internet</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Educación + Certificaciones -->
+    <section class="two section">
+      <article class="card">
+        <h2 class="title">🎓 Educación</h2>
+        <ul>
+          <li><strong>Ingeniería de Sistemas</strong> — CUN — 2021-2027 (en curso)</li>
+          <li><strong>Tecnólogo Desarrollo de Software y Redes</strong> — CUN — 2021-2026</li>
+          <li><strong>Bootcamp Ciberseguridad</strong> — CUN — Feb-May 2025</li>
+          <li><strong>Técnico Profesional Soporte de Sistemas</strong> — CUN — 2022-2024</li>
+          <li><strong>Diplomado Desarrollo de Software</strong> — UNAL — Nov-Dic 2020</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="title">🏆 Certificaciones</h2>
+        <ul>
+          <li>Curso de Power BI</li>
+          <li>Bootcamp de Ciencia de Datos con Azure</li>
+          <li>Microsoft Power Platform Fundamentals</li>
+          <li>Bootcamp de DevOps con Azure</li>
+          <li>Fundamentación de Ensamble y Mantenimiento de Computadores</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="card section">
+      <h2 class="title">🚀 Proyectos</h2>
+      <ul>
+        <li><strong>Mini-SOC:</strong> Análisis básico de logs y alertas para detección inicial, revisión de eventos y documentación de hallazgos. Demuestra interés práctico en ciberseguridad y monitoreo.</li>
+        <li><strong>CV Interactivo + ATS:</strong> Publicación en GitHub Pages con versión web interactiva y versión PDF ATS. Demuestra iniciativa, organización de información y presencia digital profesional.</li>
+        <li><strong>Automatización TI:</strong> Scripts en PowerShell o Bash para inventario, validación de servicios y tareas repetitivas. Demuestra eficiencia operativa y capacidad de estandarización.</li>
+      </ul>
+    </section>
+
+    <!-- Keywords ATS -->
+    <section class="card section">
+      <h2 class="title">🔑 Palabras Clave (ATS)</h2>
+      <p class="small">Ciberseguridad, Soporte TI, Infraestructura, Gestión de Incidentes, Mesa de Ayuda, ITSM, Auditoría de Seguridad, Análisis de Riesgos, Seguridad de la Información, Azure, Power BI, DevOps, Redes, TCP/IP, Hardware, Software, Soporte en Sitio, Soporte Remoto, Documentación Técnica, Continuidad Operativa, Gestión de Activos, Troubleshooting, Windows, Linux, Operaciones de Seguridad, GitHub, Automatización, Seguridad Endpoints, Controles Preventivos</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="muted small">© <span id="year"></span> Cirilo Cardenas Gelves — Sitio web profesional interactivo. <a href="ats.html" target="_blank" rel="noopener">Ver versión ATS</a></p>
+    </footer>
+  </main>
+
+  <!-- Textarea oculto para copiar ATS -->
+  <textarea id="atsText" class="sr-only" aria-hidden="true"></textarea>
+
+  <script src="assets/js/app.js"></script>
+</body>
 </html>
