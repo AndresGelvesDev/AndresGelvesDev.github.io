@@ -1,22 +1,235 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CV ATS de Cirilo Cardenas Gelves para procesos de selección y exportación a PDF."
-    />
-    <title>CV ATS | Cirilo Cardenas Gelves</title>
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-  </head>
-  <body class="ats-body">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="CV ATS de Cirilo Cardenas Gelves para procesos de selección y exportación a PDF."
+  />
+  <title>CV ATS | Cirilo Cardenas Gelves</title>
+
+  <style>
+    :root {
+      --bg: #eef2f7;
+      --paper: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #dbe3ee;
+      --accent: #0f172a;
+      --accent-hover: #1e293b;
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 32px 16px 64px;
+    }
+
+    .ats-shell {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .screen-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .print-btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .print-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.2);
+    }
+
+    .print-btn:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 3px;
+    }
+
+    .ats-wrapper {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 42px;
+    }
+
+    .ats-header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
+    .ats-header h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .ats-header p {
+      margin: 6px 0;
+      color: var(--muted);
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #0b3a53;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .job {
+      margin-bottom: 10px;
+    }
+
+    .job strong {
+      color: var(--text);
+    }
+
+    .contact-link {
+      color: inherit;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    .keywords {
+      color: #334155;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 20px 12px 40px;
+      }
+
+      .ats-wrapper {
+        padding: 26px 20px;
+        border-radius: 14px;
+      }
+
+      .ats-header h1 {
+        font-size: 1.7rem;
+      }
+
+      .screen-toolbar {
+        margin-bottom: 12px;
+      }
+
+      .print-btn {
+        width: 100%;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .screen-toolbar {
+        display: none !important;
+      }
+
+      .ats-shell {
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .ats-wrapper {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ats-shell">
+    <div class="screen-toolbar">
+      <button type="button" id="print-ats" class="print-btn" aria-label="Guardar CV en PDF o imprimir">
+        Guardar en PDF
+      </button>
+    </div>
+
     <main class="ats-wrapper" id="ats-content">
       <header class="ats-header">
         <h1>Cirilo Cardenas Gelves</h1>
         <p>Analista de Ciberseguridad Jr | Soporte TI | Infraestructura | Gestión de Incidentes</p>
-        <p>Bogotá, Colombia | profesional.cirilo@gmail.com | https://www.linkedin.com/in/andrestv</p>
-        <button type="button" id="print-ats">Imprimir / Guardar PDF</button>
+        <p>
+          Bogotá, Colombia |
+          <a class="contact-link" href="mailto:profesional.cirilo@gmail.com">profesional.cirilo@gmail.com</a> |
+          <a class="contact-link" href="https://www.linkedin.com/in/andrestv" target="_blank" rel="noopener noreferrer">linkedin.com/in/andrestv</a>
+        </p>
       </header>
 
       <section>
@@ -32,32 +245,17 @@
       <section>
         <h2>Propuesta de Valor</h2>
         <ul>
-          <li>
-            Fortalece continuidad operativa mediante soporte técnico, gestión de incidencias y
-            acompañamiento a usuarios.
-          </li>
-          <li>
-            Integra ciberseguridad, auditoría y análisis de riesgos para aportar controles
-            preventivos.
-          </li>
-          <li>
-            Optimiza procesos y facilita adopción de buenas prácticas mediante documentación y
-            liderazgo.
-          </li>
+          <li>Fortalece continuidad operativa mediante soporte técnico, gestión de incidencias y acompañamiento a usuarios.</li>
+          <li>Integra ciberseguridad, auditoría y análisis de riesgos para aportar controles preventivos.</li>
+          <li>Optimiza procesos y facilita adopción de buenas prácticas mediante documentación y liderazgo.</li>
         </ul>
       </section>
 
       <section>
         <h2>Habilidades</h2>
         <ul>
-          <li>
-            Ciberseguridad: Auditorías, análisis de riesgos, vulnerabilidades, controles
-            preventivos, seguridad endpoints.
-          </li>
-          <li>
-            Infraestructura/Soporte: Soporte técnico, gestión de incidentes, Windows/Linux, redes
-            TCP/IP, documentación.
-          </li>
+          <li>Ciberseguridad: Auditorías, análisis de riesgos, vulnerabilidades, controles preventivos, seguridad endpoints.</li>
+          <li>Infraestructura/Soporte: Soporte técnico, gestión de incidentes, Windows/Linux, redes TCP/IP, documentación.</li>
           <li>Cloud/DevOps: Azure Fundamentals, DevOps básico, GitHub, automatización.</li>
           <li>Datos: Power BI, análisis de datos.</li>
         </ul>
@@ -65,13 +263,13 @@
 
       <section>
         <h2>Experiencia</h2>
-        <p><strong>Consultor Junior en Soluciones Tecnológicas</strong> — Varias organizaciones, Bogotá — Feb 2025 - Presente</p>
-        <p><strong>Internal Auditor</strong> — HELMANCARRILLO — Mar 2025 - Abr 2025</p>
-        <p><strong>Agente de mesa de ayuda I</strong> — Xolit, Bogotá — Nov 2021 - Ago 2024</p>
-        <p><strong>Agente de mesa de ayuda</strong> — Xolit, Villavicencio — Mar 2021 - Oct 2021</p>
-        <p><strong>Técnico de transmisión</strong> — AndresGelves, Villavicencio — Oct 2018 - Mar 2021</p>
-        <p><strong>Técnico de soporte</strong> — Proyectos, consultorías e ingeniería S.A.S, Tauramena — Ene 2017 - Dic 2017</p>
-        <p><strong>Auxiliar de TI</strong> — Instituto Educativo Siglo XXI, Tauramena — Feb 2009 - May 2011</p>
+        <p class="job"><strong>Consultor Junior en Soluciones Tecnológicas</strong> — Varias organizaciones, Bogotá — Feb 2025 - Presente</p>
+        <p class="job"><strong>Internal Auditor</strong> — HELMANCARRILLO — Mar 2025 - Abr 2025</p>
+        <p class="job"><strong>Agente de mesa de ayuda I</strong> — Xolit, Bogotá — Nov 2021 - Ago 2024</p>
+        <p class="job"><strong>Agente de mesa de ayuda</strong> — Xolit, Villavicencio — Mar 2021 - Oct 2021</p>
+        <p class="job"><strong>Técnico de transmisión</strong> — AndresGelves, Villavicencio — Oct 2018 - Mar 2021</p>
+        <p class="job"><strong>Técnico de soporte</strong> — Proyectos, consultorías e ingeniería S.A.S, Tauramena — Ene 2017 - Dic 2017</p>
+        <p class="job"><strong>Auxiliar de TI</strong> — Instituto Educativo Siglo XXI, Tauramena — Feb 2009 - May 2011</p>
       </section>
 
       <section>
@@ -98,7 +296,7 @@
 
       <section>
         <h2>Keywords ATS</h2>
-        <p>
+        <p class="keywords">
           Ciberseguridad, Soporte TI, Infraestructura, Gestión de Incidentes, Mesa de Ayuda,
           ITSM, Auditoría de Seguridad, Análisis de Riesgos, Seguridad de la Información, Azure,
           Power BI, DevOps, Redes, TCP/IP, Hardware, Software, Soporte en Sitio, Soporte
@@ -108,7 +306,18 @@
         </p>
       </section>
     </main>
+  </div>
 
-    <script src="/assets/js/app.js"></script>
-  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const printButton = document.getElementById('print-ats');
+
+      if (!printButton) return;
+
+      printButton.addEventListener('click', function () {
+        window.print();
+      });
+    });
+  </script>
+</body>
 </html>
